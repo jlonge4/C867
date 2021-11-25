@@ -72,7 +72,7 @@ void Roster::printInvalidSIDs()
     {
         string studID = (studRostArr[i]->getStudID());
         if (studID.find('_') == string::npos ||
-         (studId.find('X') == string::npos && studID.find('x') ==))
+         (studId.find('X') == string::npos && studID.find('x') == string::npos))
          {
              any = true;
              cout << studID << ": " << studRostArr[i]->getFirstName() << std::endl;
@@ -81,5 +81,50 @@ void Roster::printInvalidSIDs()
     if (!any) cout << "NONE" << std::endl;
 }
 
-void 
+void Roster::printAverageDaysInCourse()
+{
+    for (int i = 0; i <= Roster::lastIndex; i++) {
+        cout << studRostArr[i]->getStudID() << ": ";
+        cout << (studRostArr[i]->getDaysInCourse()[0] + 
+        studRostArr[i]->getDaysInCourse()[1] +
+        studRostArr[i]->getDaysInCourse()[2])/3.0 << std::endl;
+    }
+    cout << std::endl;
+}
+
+void Roster::removeStudID(string studID)
+{
+    bool success = false;
+    for (int i = 0; i <= Roster::lastIndex; i++)
+    {
+        if (studRostArr[i]->getStudID() == studID)
+        {
+            success = true;
+            if (i < numStud - 1)
+            {
+                Student* temp = studRostArr[i];
+                studRostArr[i] = studRostArr[numStud - 1];
+                studRostArr[numStud - 1] = temp;
+            }
+            Roster::lastIndex--;
+        }
+    }
+    if (success)
+    {
+        cout << studID << " removed from roster." << std::endl << std::endl;
+        this->printAll();
+    }
+    else cout << studID << " not found." << std::endl << std::endl;
+} 
+
+Roster::~Roster()
+{
+    cout << "Destructor Called!" << std::endl << std::endl;
+    for (int i = 0; i < numStud; i++)
+    {
+        cout << "Destroying student ID" << i + 1 << std::endl;
+        delete studRostArr[i];
+        studRostArr[i] = nullptr;
+    } 
+}
 }
