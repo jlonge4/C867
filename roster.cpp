@@ -1,5 +1,5 @@
 #include "roster.h" 
-void roster::parse(string studentData)
+void Roster::parse(string studentData)
 {
     DegreeProgram dP = SEURITY;
     if (studentData.at(0) == 'F') dP = NETWORK;
@@ -30,7 +30,7 @@ void roster::parse(string studentData)
 
     add(studID, ttl, aut, p1, p2, p3, dP);
 
-    void roster::add(string studID, string firstName, string lastName, string email, 
+    void Roster::add(string studID, string firstName, string lastName, string email, 
     string age, int daysOne, int daysTwo, int daysThree)
     {
         double darr[3] = { daysOne,daysTwo,daysThree};
