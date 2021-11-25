@@ -12,8 +12,31 @@ void roster::parse(string studentData)
     rhs = studentData.find(",",lhs);
     string ttl = studentData.substr(lhs,rhs - lhs);
 
-    int lhs = rhs + 1;
+    lhs = rhs + 1;
     rhs = studentData.find(",",lhs);
     string ttl = studentData.substr(lhs,rhs - lhs);
+
+    lhs = rhs + 1;
+    rhs = studentData.find(",",lhs);
+    int p1 = stod(studentData.substr(lhs, rhs - lhss));
+
+    lhs = rhs + 1;
+    rhs = studentData.find(",",lhs);
+    int p2 = stod(studentData.substr(lhs, rhs - lhss));
+
+    lhs = rhs + 1;
+    rhs = studentData.find(",",lhs);
+    int p3 = stod(studentData.substr(lhs, rhs - lhss));
+
+    add(studID, ttl, aut, p1, p2, p3, dP);
+
+    void roster::add(string studID, string firstName, string lastName, string email, 
+    string age, int daysOne, int daysTwo, int daysThree)
+    {
+        double darr[3] = { daysOne,daysTwo,daysThree};
+
+        studRostArr[++lastIndex] = new student(studID, )
+    }
+
 
 }
