@@ -55,13 +55,24 @@ void Roster::parse(string studentData)
             cout << degreeProgramStrings[studRostArr[i]->getDegreeProgram()] << std::endl; 
         }
     }
+
+void Roster::printByDegreeProgram(DegreeProgram degreeProgram)
+{
+    Student::printHeader();
+    for (int i = 0; i <= Roster::lastIndex; i++) {
+        if (Roster::studRostArr[i]->getDegreeProgram() == dP) studRostArr[i]->print();
+    }
+    cout << std::endl;
+}
+
 void Roster::printInvalidSIDs()
 {
     bool any = false;
     for (int i = 0; i <= Roster::lastIndex; i++)
     {
         string studID = (studRostArr[i]->getStudID());
-        if (studID.find('_') == string::npos || (studId.find('X') == string::npos && studID.find('x') ==))
+        if (studID.find('_') == string::npos ||
+         (studId.find('X') == string::npos && studID.find('x') ==))
          {
              any = true;
              cout << studID << ": " << studRostArr[i]->getFirstName() << std::endl;

@@ -1,6 +1,6 @@
 #include "student.h"
 
-student::student() {
+student::Student() {
 	this -> studID = "";
 	this -> firstName = "";
 	this -> lastName = "";
@@ -10,7 +10,7 @@ student::student() {
 	this -> degreeProgram = DegreeProgram::NETWORK;
 }
 
-student::student(string studID, string firstName, string lastName, string email, int age,
+student::Student(string studID, string firstName, string lastName, string email, int age,
 	int daysInCourse[], DegreeProgram degreeProgram)
 {
 	this->studID = studID;
@@ -22,7 +22,7 @@ student::student(string studID, string firstName, string lastName, string email,
 	this->degreeProgram = degreeProgram;
 }
 
-student::~student() {}
+student::~Student() {}
 
 string student::getStudID() { return this->studID;  }
 string student::getFirstName() { return this->firstName;  }

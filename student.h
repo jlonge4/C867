@@ -6,7 +6,7 @@ using std::string;
 using std::cout;
 
 
-class student
+class Student
 {
 public:
 	const static int daysArrSize = 3;
@@ -21,10 +21,10 @@ private:
 	DegreeProgram degreeProgram;
 
 public:
-	student();
-	student(string studID, string firstName, string lastName, string email,
+	Student();
+	Student(string studID, string firstName, string lastName, string email,
 		int age, int daysInCourse[], DegreeProgram degreeProgram);
-	~student();
+	~Student();
 
 	//getters
 	string getStudID;
