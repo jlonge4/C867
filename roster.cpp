@@ -1,7 +1,7 @@
 #include "roster.h" 
 void Roster::parse(string studentData)
 {
-    DegreeProgram dP = SEURITY;
+    DegreeProgram dP = SECURITY;
     if (studentData.at(0) == 'F') dP = NETWORK;
     else if (studentData.at(0) == 'N') dP = SOFTWARE;
 
@@ -18,15 +18,15 @@ void Roster::parse(string studentData)
 
     lhs = rhs + 1;
     rhs = studentData.find(",",lhs);
-    int p1 = stod(studentData.substr(lhs, rhs - lhss));
+    int p1 = stod(studentData.substr(lhs, rhs - lhs));
 
     lhs = rhs + 1;
     rhs = studentData.find(",",lhs);
-    int p2 = stod(studentData.substr(lhs, rhs - lhss));
+    int p2 = stod(studentData.substr(lhs, rhs - lhs));
 
     lhs = rhs + 1;
     rhs = studentData.find(",",lhs);
-    int p3 = stod(studentData.substr(lhs, rhs - lhss));
+    int p3 = stod(studentData.substr(lhs, rhs - lhs));
 
     add(studID, ttl, aut, p1, p2, p3, dP);
 
