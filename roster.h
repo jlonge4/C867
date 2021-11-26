@@ -5,7 +5,7 @@ class Roster {
 private:
 	int lastIndex = -1;
 	const static int numStud = 5;
-	student* studentRosterArr[numStud];
+	Student* studentRosterArr[numStud];
 
 public:
 
@@ -26,7 +26,7 @@ public:
 	void printInvalidSIDs();
 	void printAverageDaysInCourse();
 	void removeStudID(string studID);
-	~Repo();
+	~Roster();
 };
 
 
