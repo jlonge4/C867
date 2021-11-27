@@ -1,16 +1,15 @@
 #pragma once
 #include "student.h"
 
-class Roster {
+class Roster 
+{
 private:
 	int lastIndex = -1;
 	const static int numStud = 5;
-	student* studentRosterArr[numStud];
+	Student* studRosterArr[numStud];
 
 public:
-
 	void parse(string row);
-
 	void add(string sID,
 		string slastName,
 		string sfirstName,
@@ -20,13 +19,12 @@ public:
 		int sdaysInCourse2,
 		int sdaysInCourse3,
 		DegreeProgram dP);
-	
 	void printAll();
 	void printByDegreeProgram(DegreeProgram dP);
 	void printInvalidSIDs();
 	void printAverageDaysInCourse();
 	void removeStudID(string studID);
-	~Repo();
+	~Roster();
 };
 
 

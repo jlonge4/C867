@@ -1,6 +1,6 @@
 #include "student.h"
 
-student::student() {
+Student::Student() {
 	this -> studID = "";
 	this -> firstName = "";
 	this -> lastName = "";
@@ -10,8 +10,8 @@ student::student() {
 	this -> degreeProgram = DegreeProgram::NETWORK;
 }
 
-student::student(string studID, string firstName, string lastName, string email, int age,
-	int daysInCourse[], DegreeProgram degreeProgram)
+Student::Student(string studID, string firstName, string lastName, string email, int age,
+	double daysInCourse[], DegreeProgram degreeProgram)
 {
 	this->studID = studID;
 	this->firstName = firstName;
@@ -22,29 +22,29 @@ student::student(string studID, string firstName, string lastName, string email,
 	this->degreeProgram = degreeProgram;
 }
 
-student::~student() {}
+Student::~Student() {}
 
-string student::getStudID() { return this->studID;  }
-string student::getFirstName() { return this->firstName;  }
-string student::getLastName() { return this->lastName; }
-string student::getEmail() { return this->email; }
-int student::getAge() { return this->age; }
-int* student::getDaysInCourse() { return this->daysInCourse; }
-DegreeProgram student::getDegreeProgram() { return this->degreeProgram; }
+string Student::getStudID() { return this->studID;  }
+string Student::getFirstName() { return this->firstName;  }
+string Student::getLastName() { return this->lastName; }
+string Student::getEmail() { return this->email; }
+int Student::getAge() { return this->age; }
+double* Student::getDaysInCourse() { return this->daysInCourse; }
+DegreeProgram Student::getDegreeProgram() { return this->degreeProgram; }
 
-void student::setStudID(string studID) { this->studID = studID; }
-void student::setFirstName(string firstName) { this->firstName = firstName; }
-void student::setLastName(string lastName) { this->lastName = lastName; }
-void student::setEmail(string email) { this->email = email; }
-void student::setAge(int age) { this->age = age; }
-void student::setDaysInCourse(int daysInCourse[]) { for (int i = 0; i < daysArrSize; i++) this->daysInCourse[i] = 0; }
-void student::setDegreeProgram(DegreeProgram degreeProgram) { this->degreeProgram = degreeProgram; }
+void Student::setStudID(string studID) { this->studID = studID; }
+void Student::setFirstName(string firstName) { this->firstName = firstName; }
+void Student::setLastName(string lastName) { this->lastName = lastName; }
+void Student::setEmail(string email) { this->email = email; }
+void Student::setAge(int age) { this->age = age; }
+void Student::setDaysInCourse(double daysInCourse[]) { for (int i = 0; i < daysArrSize; i++) this->daysInCourse[i] = 0; }
+void Student::setDegreeProgram(DegreeProgram degreeProgram) { this->degreeProgram = degreeProgram; }
 
-void student::printHeader() {
+void Student::printHeader() {
 	cout << "Output Format: Student ID | First Name | Last Name | Email | Age | Days In Course | Degree Program\n";
 }
 
-void student::print() {
+void Student::print() {
 	cout << this->getStudID() << '\t/';
 	cout << this->getFirstName() << '\t/';
 	cout << this->getLastName() << '\t/';

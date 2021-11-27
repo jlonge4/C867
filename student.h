@@ -6,34 +6,32 @@ using std::string;
 using std::cout;
 
 
-class student
+class Student
 {
 public:
 	const static int daysArrSize = 3;
-
 private:
 	string studID;
 	string firstName;
 	string lastName;
 	string email;
 	int age;
-	int daysInCourse[daysArrSize];
+	double daysInCourse[daysArrSize];
 	DegreeProgram degreeProgram;
-
 public:
-	student();
-	student(string studID, string firstName, string lastName, string email,
-		int age, int daysInCourse[], DegreeProgram degreeProgram);
-	~student();
+	Student();
+	Student(string studID, string firstName, string lastName, string email,
+		int age, double daysInCourse[], DegreeProgram degreeProgram);
+	~Student();
 
 	//getters
-	string getStudID;
-	string getFirstName;
-	string getLastName;
-	string getEmail;
-	int getAge;
-	int* getDaysInCourse[daysArrSize];
-	DegreeProgram getDegreeProgram; 
+	string getStudID();
+	string getFirstName();
+	string getLastName();
+	string getEmail();
+	int getAge();
+	double* getDaysInCourse();
+	DegreeProgram getDegreeProgram();
 
 	//setters
 	void setStudID(string studID);
@@ -41,7 +39,7 @@ public:
 	void setLastName(string  lastName);
 	void setEmail(string email);
 	void setAge(int age);
-	void setDaysInCourse(int daysInCOurse[]);
+	void setDaysInCourse(double daysInCOurse[]);
 	void setDegreeProgram(DegreeProgram degreeProgram);
 
 	static void printHeader();
