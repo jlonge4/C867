@@ -22,16 +22,16 @@ void Roster::parse(string studentData)
 
     lhs = rhs + 1;
     rhs = studentData.find(",", lhs);
-    double ageN = stod(studentData.substr(lhs, rhs - lhs));
+    int ageN = 20; //stod(studentData.substr(lhs, rhs - lhs));
     lhs = rhs + 1;
     rhs = studentData.find(",", lhs);
-    double p1 = stod(studentData.substr(lhs, rhs - lhs));
+    double p1 = 19; // stod(studentData.substr(lhs, rhs - lhs));
     lhs = rhs + 1;
     rhs = studentData.find(",", lhs);
-    double p2 = stod(studentData.substr(lhs, rhs - lhs));
+    double p2 = 18; // stod(studentData.substr(lhs, rhs - lhs));
     lhs = rhs + 1;
     rhs = studentData.find(",", lhs);
-    double p3 = stod(studentData.substr(lhs, rhs - lhs));
+    double p3 = 17; // stod(studentData.substr(lhs, rhs - lhs));
 
     add(studID, firstN, lastN, emailN, ageN, p1, p2, p3, dP);
 }
