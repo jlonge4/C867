@@ -15,9 +15,9 @@ public:
 		string sfirstName,
 		string semail,
 		int sage,
-		int sdaysInCourse1,
-		int sdaysInCourse2,
-		int sdaysInCourse3,
+		double sdaysInCourse1,
+		double sdaysInCourse2,
+		double sdaysInCourse3,
 		DegreeProgram dP);
 	void printAll();
 	void printByDegreeProgram(DegreeProgram dP);

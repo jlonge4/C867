@@ -16,12 +16,12 @@ private:
 	string lastName;
 	string email;
 	int age;
-	double daysInCourse[daysArrSize];
+	double daysInCourse[3];
 	DegreeProgram degreeProgram;
 public:
 	Student();
 	Student(string studID, string firstName, string lastName, string email,
-		int age, double daysInCourse[], DegreeProgram degreeProgram);
+		int age, double* daysInCourse, DegreeProgram degreeProgram);
 	~Student();
 
 	//getters
@@ -39,7 +39,7 @@ public:
 	void setLastName(string  lastName);
 	void setEmail(string email);
 	void setAge(int age);
-	void setDaysInCourse(double daysInCOurse[]);
+	void setDaysInCourse(double* daysInCOurse);
 	void setDegreeProgram(DegreeProgram degreeProgram);
 
 	static void printHeader();

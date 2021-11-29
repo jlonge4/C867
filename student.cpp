@@ -1,4 +1,5 @@
 #include "student.h"
+#include <iostream>
 
 Student::Student() {
 	this -> studID = "";
@@ -6,19 +7,19 @@ Student::Student() {
 	this -> lastName = "";
 	this -> email = "";
 	this-> age = 0;
-	for (int i = 0; i < daysArrSize; i++) this->daysInCourse[i] = 0;
+	for (int i = 0; i < daysArrSize; i++) { this->daysInCourse[i] = daysInCourse[i]; }
 	this -> degreeProgram = DegreeProgram::NETWORK;
 }
 
 Student::Student(string studID, string firstName, string lastName, string email, int age,
-	double daysInCourse[], DegreeProgram degreeProgram)
+	double daysInCourse[3], DegreeProgram degreeProgram)
 {
 	this->studID = studID;
 	this->firstName = firstName;
 	this->lastName = lastName;
 	this->email = email;
 	this->age = age;
-	for (int i = 0; i < daysArrSize; i++) this->daysInCourse[i] = 0;
+	for (int i = 0; i < daysArrSize; i++) { this->daysInCourse[i] = daysInCourse[i]; } 
 	this->degreeProgram = degreeProgram;
 }
 
@@ -45,15 +46,15 @@ void Student::printHeader() {
 }
 
 void Student::print() {
-	cout << this->getStudID() << '\t/';
-	cout << this->getFirstName() << '\t/';
-	cout << this->getLastName() << '\t/';
-	cout << this->getEmail() << '\t/';
-	cout << this->getAge() << '\t/';
-	cout << this->getDaysInCourse()[0] << ',';
-	cout << this->getDaysInCourse()[1] << ',';
-	cout << this->getDaysInCourse()[2] << ',';
-	cout << degreeProgramStrings[this->getDegreeProgram()] << '\n';
+	cout << this->getStudID(); cout << '\t';
+	cout << this->getFirstName(); cout << '\t';
+	cout << this->getLastName(); cout << '\t';
+	cout << this->getEmail(); cout << '\t';
+	cout << this->getAge(); cout << '\t';
+	cout << this->getDaysInCourse()[0]; cout << ',';
+	cout << this->getDaysInCourse()[1]; cout << ',';
+	cout << this->getDaysInCourse()[2]; cout << ',';
+	cout << degreeProgramStrings[this->getDegreeProgram()]; cout << '\n';
 	
 }
 

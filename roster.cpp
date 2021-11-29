@@ -1,9 +1,12 @@
+#include <iostream>
+#include <string>
 #include "roster.h" 
 void Roster::parse(string studentData)
 {
     DegreeProgram dP = NETWORK;
-    if (studentData.at(1) == '3' || studentData.at(1) == '5') dP = SOFTWARE;
+    if (studentData.at(1) == '3' || (studentData.at(1) == '5')) dP = SOFTWARE;
     else if (studentData.at(1) == '1' || studentData.at(1) == '4') dP = SECURITY;
+    
 
     int rhs = studentData.find(",");
     string studID = studentData.substr(0, rhs);
@@ -20,18 +23,19 @@ void Roster::parse(string studentData)
     rhs = studentData.find(",", lhs);
     string emailN = studentData.substr(lhs, rhs - lhs);
 
+    
     lhs = rhs + 1;
     rhs = studentData.find(",", lhs);
-    int ageN = 20; //stod(studentData.substr(lhs, rhs - lhs));
+    int ageN = stoi(studentData.substr(lhs, rhs - lhs)); 
     lhs = rhs + 1;
     rhs = studentData.find(",", lhs);
-    double p1 = 19; // stod(studentData.substr(lhs, rhs - lhs));
+    double p1 = stod(studentData.substr(lhs, rhs - lhs));
     lhs = rhs + 1;
     rhs = studentData.find(",", lhs);
-    double p2 = 18; // stod(studentData.substr(lhs, rhs - lhs));
+    double p2 = stod(studentData.substr(lhs, rhs - lhs));
     lhs = rhs + 1;
     rhs = studentData.find(",", lhs);
-    double p3 = 17; // stod(studentData.substr(lhs, rhs - lhs));
+    double p3 = stod(studentData.substr(lhs, rhs - lhs));
 
     add(studID, firstN, lastN, emailN, ageN, p1, p2, p3, dP);
 }
@@ -40,13 +44,12 @@ void Roster::add(string studID,
     string lastName,
     string email,
     int age,
-    int days1,
-    int days2,
-    int days3,
+    double days1,
+    double days2,
+    double days3,
     DegreeProgram dP)
 {
     double daysInArr[3] = { days1,days2,days3 };
-
     studRosterArr[++lastIndex] = new Student(studID, firstName, lastName, email, age, daysInArr, dP);
     }
 
@@ -81,12 +84,13 @@ void Roster::printInvalidSIDs()
     bool any = false;
     for (int i = 0; i <= Roster::lastIndex; i++)
     {
-        string studID = (studRosterArr[i]->getStudID());
-        if (studID.find('_') == string::npos ||
-         (studID.find('X') == string::npos && studID.find('x') == string::npos))
+        string studId = (studRosterArr[i]->getStudID());
+        string email = (studRosterArr[i]->getEmail());
+        if (email.find('.') == string::npos ||
+         (email.find('@') == string::npos && email.find(' ') == string::npos))
          {
-             any = true;
-             cout << studID << ": " << studRosterArr[i]->getFirstName() << std::endl;
+             any = false;
+             cout << studId << ": " << studRosterArr[i]->getEmail() << std::endl;
         }
     }
     if (!any) cout << "NONE" << std::endl;
