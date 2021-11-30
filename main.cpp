@@ -14,6 +14,8 @@ int main()
     const int numStud = 5;
     Roster roster;
 
+    cout << "C867 : C++ : 009487223 : Josh Longenecker" << std::endl;
+
     for (int i = 0; i < numStud; i++) roster.parse(studentData[i]);
     cout << "Displaying all students: " << std::endl;
     roster.printAll();
