@@ -22,9 +22,11 @@ public:
 	void printAll();
 	void printByDegreeProgram(DegreeProgram dP);
 	void printInvalidSIDs();
-	void printAverageDaysInCourse();
+	void printAverageDaysInCourse(std::string studID);
 	void removeStudID(string studID);
+	
 	~Roster();
-};
+}
 
 
+;

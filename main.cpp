@@ -3,7 +3,8 @@
 
 int main()
 {
-
+    
+    
     const string studentData[] = 
         {"A1,John,Smith,John1989@gmail.com,20,30,35,40,SECURITY", 
         "A2,Suzan,Erickson,Erickson_1990@gmailcom,19,50,30,40,NETWORK", 
@@ -11,12 +12,13 @@ int main()
         "A4,Erin,Black,Erin.black@comcast.net,22,50,58,40,SECURITY",
         "A5,Josh,Longenecker,jlonge4@wgu.edu,29,9.8,9.8,9.8,SOFTWARE"};
     
-    const int numStud = 5;
+    
     Roster roster;
+    Student student;
 
     cout << "C867 : C++ : 009487223 : Josh Longenecker" << std::endl;
 
-    for (int i = 0; i < numStud; i++) roster.parse(studentData[i]);
+    for (int i = 0; i < 5; i++) roster.parse(studentData[i]);
     cout << "Displaying all students: " << std::endl;
     roster.printAll();
     cout << std::endl;
@@ -32,7 +34,8 @@ int main()
     cout << std::endl;
 
     cout << "Displaying days in course: " << std::endl;
-    roster.printAverageDaysInCourse();
+        string studID = "";
+        roster.printAverageDaysInCourse(studID);
 
     cout << "Removing student with ID " << std::endl;
     roster.removeStudID("A3");

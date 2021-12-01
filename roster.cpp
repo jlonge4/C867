@@ -56,18 +56,17 @@ void Roster::add(string studID,
 void Roster::printAll()
 {
     Student::printHeader();
-        for (int i=0; i <= Roster::lastIndex; i++)
-        {
-            cout << studRosterArr[i]->getStudID(); cout << '\t';
-            cout << studRosterArr[i]->getFirstName(); cout << '\t';
-            cout << studRosterArr[i]->getLastName(); cout << '\t';
-            cout << studRosterArr[i]->getEmail(); cout << '\t';
-            cout << studRosterArr[i]->getAge(); cout << '\t';
-            cout << studRosterArr[i]->getDaysInCourse()[0]; cout << '\t';
-            cout << studRosterArr[i]->getDaysInCourse()[1]; cout << '\t';
-            cout << studRosterArr[i]->getDaysInCourse()[2]; cout << '\t';
-            cout << degreeProgramStrings[studRosterArr[i]->getDegreeProgram()] << std::endl; 
+    {
+        
+        //cout << "This class conatins these students:" << endl;
+        for (int i = 0; i <= Roster::lastIndex; i++) {
+            if (studRosterArr[i] == nullptr) {
+            }
+            else {
+                studRosterArr[i]->print();
+            }
         }
+    }
     }
 
 void Roster::printByDegreeProgram(DegreeProgram degreeProgram)
@@ -96,7 +95,7 @@ void Roster::printInvalidSIDs()
     if (!any) cout << "NONE" << std::endl;
 }
 
-void Roster::printAverageDaysInCourse()
+/*void Roster::printAverageDaysInCourse()
 {
     for (int i = 0; i <= Roster::lastIndex; i++) {
         cout << studRosterArr[i]->getStudID() << ": ";
@@ -105,7 +104,34 @@ void Roster::printAverageDaysInCourse()
         studRosterArr[i]->getDaysInCourse()[2])/3.0 << std::endl;
     }
     cout << std::endl;
+}*/
+void Roster::printAverageDaysInCourse(std::string studID) {
+    int average;
+    int daysA;
+    int daysB;
+    int daysC;
+    int indexNum = 0;
+
+    
+    for (int i = 0; i <= Roster::lastIndex; i++) {
+        studRosterArr[i]->getStudID() = studID;
+        indexNum = i;
+
+        daysA = studRosterArr[indexNum]->getDaysInCourse()[0];
+        daysB = studRosterArr[indexNum]->getDaysInCourse()[1];
+        daysC = studRosterArr[indexNum]->getDaysInCourse()[2];
+
+        average = ((daysA + daysB + daysC) / 3);
+
+        std::cout << "Average of days in course for student " << studRosterArr[i]->getStudID() << ": " << average;
+        std::cout << std::endl;
+
+    }
+
+   
+  
 }
+
 
 void Roster::removeStudID(string studID)
 {
